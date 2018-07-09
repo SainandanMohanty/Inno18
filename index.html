@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Innovision '18</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta charset="utf-8">
+</head>
+
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.bgimg {
+    background-image: url('./images/unsplash.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 24px;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="timer" style="font-size:30px"></p>
+  </div>
+  <div class="bottomleft">
+    <p>INNOVISION 2k18</p>
+  </div>
+  <div class="topleft">
+    <img src="images/inno_logo.png"/>
+  </div>
+  <div class="topright">
+    <img src="images/nitr_logo.png"/>
+  </div>
+</div>
+
+<script>
+var countDownDate = new Date("Nov 2, 2018 00:00:00").getTime();
+
+var countdownfunction = setInterval(function() {
+
+    var now = new Date().getTime();
+    
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+    if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("timer").innerHTML = "0 d 0 h 0 m 0 s";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
+
+<!-- Made with lots of <3 by Sainandan -->
